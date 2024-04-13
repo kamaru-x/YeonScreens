@@ -23,4 +23,11 @@ urlpatterns = [
     path('event/add/',views.add_event,name='add-event'),
     path('event/edit/<str:event_id>/',views.edit_event,name='edit-event'),
     path('event/delete/',views.delete_event,name='delete-event'),
+
+    path('clients/',views.clients,name='clients'),
+    path('client/add/',views.add_clients,name='add-clients'),
+    path('client/delete/',views.delete_client,name='delete-client'),
+
+    path('enquiries/<str:type>/',views.enquiries,name='enquiries'),
+    path('enquiry/delete/',views.delete_enquiry,name='delete-enquiry')
 ]

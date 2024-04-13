@@ -250,18 +250,18 @@
                 <div class="row gx-0">
                     <div class="col-26">
                         <div class="project__thumb-seven shine__animate-item">
-                            <a href="project-details.html" class="shine__animate-link"><img src="https://5.imimg.com/data5/SELLER/Default/2022/9/UD/HM/JE/710180/outdoor-led-display-screen.png" alt="img"></a>
+                            <a href="" class="shine__animate-link"><img src="https://5.imimg.com/data5/SELLER/Default/2022/9/UD/HM/JE/710180/outdoor-led-display-screen.png" alt="img"></a>
                         </div>
                         <div class="project__thumb-seven shine__animate-item">
-                            <a href="project-details.html" class="shine__animate-link"><img src="https://5.imimg.com/data5/SD/NS/MY-2986447/advertising-led-display-screen-500x500.jpg" alt="img"></a>
+                            <a href="" class="shine__animate-link"><img src="https://5.imimg.com/data5/SD/NS/MY-2986447/advertising-led-display-screen-500x500.jpg" alt="img"></a>
                         </div>
                     </div>
                     <div class="col-26 order-2 order-lg-3">
                         <div class="project__thumb-seven shine__animate-item">
-                            <a href="project-details.html" class="shine__animate-link"><img src="https://5.imimg.com/data5/SELLER/Default/2023/10/354040971/MG/VI/IN/49605800/advertising-led-display-screen-500x500.jpg" alt="img"></a>
+                            <a href="" class="shine__animate-link"><img src="https://5.imimg.com/data5/SELLER/Default/2023/10/354040971/MG/VI/IN/49605800/advertising-led-display-screen-500x500.jpg" alt="img"></a>
                         </div>
                         <div class="project__thumb-seven shine__animate-item">
-                            <a href="project-details.html" class="shine__animate-link"><img src="https://qph.cf2.quoracdn.net/main-qimg-6b1a0619f99875943d6eb7b3c56b466b" alt="img"></a>
+                            <a href="" class="shine__animate-link"><img src="https://qph.cf2.quoracdn.net/main-qimg-6b1a0619f99875943d6eb7b3c56b466b" alt="img"></a>
                         </div>
                     </div>
                     <div class="col-47 order-3 order-lg-2">
@@ -270,14 +270,14 @@
                                 <div class="swiper-slide">
                                     <div class="project__item-seven">
                                         <div class="project__thumb-eight">
-                                            <a href="project-details.html"><img src="{% static 'web/images/Products/790x800.jpg' %}" alt="img"></a>
+                                            <a href=""><img src="{% static 'web/images/Products/790x800.jpg' %}" alt="img"></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="project__item-seven">
                                         <div class="project__thumb-eight">
-                                            <a href="project-details.html"><img src="{% static 'web/images/Products/790x800.jpg' %}" alt="img"></a>
+                                            <a href=""><img src="{% static 'web/images/Products/790x800.jpg' %}" alt="img"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -300,13 +300,14 @@
             <div class="row gx-0">
                 <div class="col-lg-7 order-0 order-lg-2">
                     <div class="consultation__img">
-                        <img src="https://themegenix.com/demo/renova/assets/img/images/consultation_img.jpg" alt="img">
+                        <img src="https://themegenix.com/demo/renova/assets/img/images/consultation_img.jpg" alt="img" style="max-height: 747px;">
                     </div>
                 </div>
                 <div class="col-lg-5">
                     <div class="consultation__form-wrap">
                         <h2 class="title">Schedule free consultation</h2>
-                        <form action="#" class="consultation__form">
+                        <form id="enq-form" action="#" class="consultation__form">
+                            <input id="product_id" type="hidden" value="{{ series.id }}">
                             <div class="form-grp">
                                 <label for="name">Enter your full name*</label>
                                 <input type="text" id="name">
@@ -319,21 +320,12 @@
                                 <label for="number">Your phone number*</label>
                                 <input type="number" id="number">
                             </div>
-                            <div class="form-grp select-grp">
-                                <label for="select">What are you looking for?</label>
-                                <select name="select" id="select" class="orderby">
-                                    <option value="Select your subject">Select your subject</option>
-                                    <option value="Subject One">Subject One</option>
-                                    <option value="Subject Two">Subject Two</option>
-                                    <option value="Subject Three">Subject Three</option>
-                                    <option value="Subject Four">Subject Four</option>
-                                </select>
-                            </div>
                             <div class="form-grp">
                                 <label for="message">Write your message</label>
                                 <textarea name="message" id="message"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-two">Get your free quote</button>
+                            <p id="success-message" style="color: #0fdc27; display: none;">Enquiry Submited Successfully ... !</p>
+                            <button id="enq-btn" type="button" class="btn btn-two">Get your free quote</button>
                         </form>
                     </div>
                 </div>

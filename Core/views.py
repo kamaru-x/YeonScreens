@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from Core.models import Series,Application,Project,Event,Enquiry,Features,Specification,Works
+from Core.models import Series,Application,Project,Event,Enquiry,Features,Specification,Works,Client
 from django.contrib import messages
 
 # Create your views here.
@@ -325,3 +325,69 @@ def delete_event(request):
         event.delete()
         messages.warning(request,'event Deleted Successfully ... !')
     return redirect('events-list')
+
+#----------------------------------- CLIENTS -----------------------------------#
+
+@login_required
+def clients(request):
+    clients = Client.objects.all()
+    context = {
+        'page' : 'clients',
+        'clients' : clients
+    }
+    return render(request,'Dashboard/Clients/clients.html',context)
+
+#----------------------------------- ADD CLIENTS -----------------------------------#
+
+@login_required
+def add_clients(request):
+    if request.method == 'POST':
+        images = request.FILES.getlist('images')
+
+        for image in images:
+            Client.objects.create(Image=image)
+
+    return redirect('clients')
+
+#----------------------------------- DELETE CLIENTS ---------------------------------#
+
+@login_required
+def delete_client(request):
+    if request.method == 'POST':
+        client_id = request.POST.get('client_id')
+        client = Client.objects.get(id=client_id)
+        client.delete()
+        messages.warning(request,'Client Deleted Successfully ... !')
+    return redirect('clients')
+
+#----------------------------------- CONTACT ENQUIRIES ---------------------------------#
+
+@login_required
+def enquiries(request,type):
+    if type == 'Product':
+        enquiries = Enquiry.objects.exclude(Product=None)
+        page = 'e-product'
+    elif type == 'Service':
+        enquiries = Enquiry.objects.exclude(Service=None)
+        page = 'e-service'
+    else:
+        enquiries = Enquiry.objects.filter(Product=None,Service=None)
+        page = 'e-contact'
+
+    context = {
+        'page' : page,
+        'enquiries' : enquiries.order_by('-id'),
+        'type' : type
+    }
+    return render(request,'Dashboard/Enquiries/enquiries.html',context)
+
+#----------------------------------- CONTACT ENQUIRIES ---------------------------------#
+
+@login_required
+def delete_enquiry(request):
+    if request.method == 'POST':
+        enquiry_id = request.POST.get('enquiry_id')
+        enquiry = Enquiry.objects.get(id=enquiry_id)
+        enquiry.delete()
+        messages.warning(request,'Enquiry Deleted Successfully ... !')
+    return redirect('enquiries')

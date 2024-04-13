@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Core.models import Series,Features,Specification,Application,Works,Project
+from Core.models import Series,Features,Specification,Application,Works,Project,Client,Enquiry
 
 # Register your models here.
 
@@ -26,3 +26,11 @@ class WorksModelAdmin(admin.ModelAdmin):
 @admin.register(Project)
 class ProjectModelAdmin(admin.ModelAdmin):
     list_display = ['Title']
+
+@admin.register(Client)
+class ClientModelAdmin(admin.ModelAdmin):
+    list_display = ['Image','Date']
+
+@admin.register(Enquiry)
+class EnquiryModelAdmin(admin.ModelAdmin):
+    list_display = ['Date','Name','Email','Mobile']

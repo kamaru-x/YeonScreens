@@ -91,4 +91,20 @@ class Event(models.Model):
 ######################################################################
 
 class Enquiry(models.Model):
+    Date = models.DateField(auto_now_add=True)
     Name = models.CharField(max_length=100)
+    Email = models.EmailField(null=True)
+    Mobile = models.CharField(max_length=20,null=True)
+    Message = models.TextField(null=True)
+
+    Service = models.ForeignKey(Application,on_delete=models.DO_NOTHING,null=True)
+    Product = models.ForeignKey(Series,on_delete=models.DO_NOTHING,null=True)
+
+    def __str__(self):
+        return self.Name
+
+######################################################################
+
+class Client(models.Model):
+    Image = models.ImageField(upload_to='Clients')
+    Date = models.DateField(auto_now_add=True)

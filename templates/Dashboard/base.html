@@ -208,7 +208,7 @@
                     </li>
 
                     <li>
-                        <a href="{% url 'projects' %}" class="side-menu {% if page == 'projects' %} side-menu--active {% endif %}">
+                        <a href="{% url 'projects-list' %}" class="side-menu {% if page == 'projects' %} side-menu--active {% endif %}">
                             <div class="side-menu__icon"> <i data-lucide="codepen"></i> </div>
                             <div class="side-menu__title"> Projects </div>
                         </a>
@@ -218,6 +218,34 @@
                         <a href="{% url 'events-list' %}" class="side-menu {% if page == 'events' %} side-menu--active {% endif %}">
                             <div class="side-menu__icon"> <i data-lucide="calendar"></i> </div>
                             <div class="side-menu__title"> Events </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'clients' %}" class="side-menu {% if page == 'clients' %} side-menu--active {% endif %}">
+                            <div class="side-menu__icon"> <i data-lucide="users"></i> </div>
+                            <div class="side-menu__title"> Clients </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'enquiries' 'Contact' %}" class="side-menu {% if page == 'e-contact' %} side-menu--active {% endif %}">
+                            <div class="side-menu__icon"> <i data-lucide="file"></i> </div>
+                            <div class="side-menu__title"> Contact Enquiries </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'enquiries' 'Service' %}" class="side-menu {% if page == 'e-service' %} side-menu--active {% endif %}">
+                            <div class="side-menu__icon"> <i data-lucide="file"></i> </div>
+                            <div class="side-menu__title"> Service Enquiries </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'enquiries' 'Product' %}" class="side-menu {% if page == 'e-product' %} side-menu--active {% endif %}">
+                            <div class="side-menu__icon"> <i data-lucide="file"></i> </div>
+                            <div class="side-menu__title"> Product Enquiries </div>
                         </a>
                     </li>
                     <!-- <li>

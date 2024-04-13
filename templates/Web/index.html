@@ -499,41 +499,13 @@
          <div class="container">
              <div class="swiper brand-active">
                  <div class="swiper-wrapper">
-                     <div class="swiper-slide">
-                         <div class="brand__item">
-                             <img src="{% static 'web/img/brand/brand_img01.png' %}" alt="img">
-                         </div>
-                     </div>
-                     <div class="swiper-slide">
-                         <div class="brand__item">
-                             <img src="{% static 'web/img/brand/brand_img02.png' %}" alt="img">
-                         </div>
-                     </div>
-                     <div class="swiper-slide">
-                         <div class="brand__item">
-                             <img src="{% static 'web/img/brand/brand_img03.png' %}" alt="img">
-                         </div>
-                     </div>
-                     <div class="swiper-slide">
-                         <div class="brand__item">
-                             <img src="{% static 'web/img/brand/brand_img04.png' %}" alt="img">
-                         </div>
-                     </div>
-                     <div class="swiper-slide">
-                         <div class="brand__item">
-                             <img src="{% static 'web/img/brand/brand_img05.png' %}" alt="img">
-                         </div>
-                     </div>
-                     <div class="swiper-slide">
-                         <div class="brand__item">
-                             <img src="{% static 'web/img/brand/brand_img06.png' %}" alt="img">
-                         </div>
-                     </div>
-                     <div class="swiper-slide">
-                         <div class="brand__item">
-                             <img src="{% static 'web/img/brand/brand_img03.png' %}" alt="img">
-                         </div>
-                     </div>
+                    {% for client in clients %}
+                        <div class="swiper-slide">
+                            <div class="brand__item">
+                                <img src="{{ client.Image.url }}" alt="img">
+                            </div>
+                        </div>
+                    {% endfor %}
                  </div>
              </div>
          </div>
@@ -546,40 +518,31 @@
              <div class="row gx-0">
                  <div class="col-lg-7">
                      <div class="consultation__img">
-                         <img src="https://themegenix.com/demo/renova/assets/img/images/consultation_img.jpg" alt="img">
+                         <img src="https://themegenix.com/demo/renova/assets/img/images/consultation_img.jpg" alt="img" style="max-height: 745px;">
                      </div>
                  </div>
                  <div class="col-lg-5">
                      <div class="consultation__form-wrap">
                          <h2 class="title">Schedule free consultation</h2>
-                         <form action="#" class="consultation__form">
+                         <form action="#" class="consultation__form" id="enq-form">
                              <div class="form-grp">
                                  <label for="name">Enter your full name*</label>
-                                 <input type="text" id="name">
+                                 <input name="name" type="text" id="name" required>
                              </div>
                              <div class="form-grp">
-                                 <label for="email">Your email address*</label>
-                                 <input type="email" id="email">
+                                 <label for="email">Your email address</label>
+                                 <input name="email" type="email" id="email">
                              </div>
                              <div class="form-grp">
                                  <label for="number">Your phone number*</label>
-                                 <input type="number" id="number">
-                             </div>
-                             <div class="form-grp select-grp">
-                                 <label for="select">What are you looking for?</label>
-                                 <select name="select" id="select" class="orderby">
-                                     <option value="Select your subject">Select your subject</option>
-                                     <option value="Subject One">Subject One</option>
-                                     <option value="Subject Two">Subject Two</option>
-                                     <option value="Subject Three">Subject Three</option>
-                                     <option value="Subject Four">Subject Four</option>
-                                 </select>
+                                 <input name="number" type="number" id="number" required>
                              </div>
                              <div class="form-grp">
                                  <label for="message">Write your message</label>
                                  <textarea name="message" id="message"></textarea>
                              </div>
-                             <button type="submit" class="btn btn-two">Get your free quote</button>
+                             <p id="success-message" style="color: #0fdc27; display: none;">Enquiry Submited Successfully ... !</p>
+                             <button type="button" id="enq-btn" class="btn btn-two">Get your free quote</button>
                          </form>
                      </div>
                  </div>
