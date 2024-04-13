@@ -69,11 +69,13 @@ def product_details(request,slug):
     series = Series.objects.get(Slug=slug)
     features = Features.objects.filter(Series=series)
     specifications = Specification.objects.filter(Series=series)
+    works = Works.objects.all()
     context = {
         'page' : 'products',
         'series' : series,
         'features' : features,
-        'specifications' : specifications
+        'specifications' : specifications,
+        'works' : works
     }
     return render(request,'Web/product-details.html',context)
 

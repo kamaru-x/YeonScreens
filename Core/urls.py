@@ -1,5 +1,5 @@
 from django.urls import path
-from Core import views
+from Core import views,ajax
 
 urlpatterns = [
     path('',views.dashboard,name='dashboard'),
@@ -29,5 +29,10 @@ urlpatterns = [
     path('client/delete/',views.delete_client,name='delete-client'),
 
     path('enquiries/<str:type>/',views.enquiries,name='enquiries'),
-    path('enquiry/delete/',views.delete_enquiry,name='delete-enquiry')
+    path('enquiry/delete/',views.delete_enquiry,name='delete-enquiry'),
+
+    path('feature/edit/',ajax.edit_feature,name='edit-feature'),
+    path('feature/delete/',ajax.delete_feature,name='delete-feature'),
+    path('spec/edit/',ajax.edit_spec,name='edit-spec'),
+    path('spec/delete/',ajax.delete_spec,name='delete-spec'),
 ]

@@ -72,7 +72,7 @@
                                         <a class="flex items-center text-warning whitespace-nowrap mr-5" href="" title="view">
                                             <i data-lucide="eye" class="w-4 h-4 mr-1"></i>
                                         </a>
-                                        <a class="flex items-center text-primary whitespace-nowrap mr-5" href="" title="edit">
+                                        <a class="flex items-center text-primary whitespace-nowrap mr-5" href="{% url 'edit-application' application.Slug %}" title="edit">
                                             <i data-lucide="edit" class="w-4 h-4 mr-1"></i> 
                                         </a>
                                         <a onclick="delete_application('{{application.id}}')" class="flex items-center text-danger whitespace-nowrap" href="javascript:;" data-tw-toggle="modal" data-tw-target="#delete-confirmation-modal" title="delete">

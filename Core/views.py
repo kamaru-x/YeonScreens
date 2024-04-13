@@ -98,9 +98,24 @@ def edit_series(request,slug):
 
         series.Title = request.POST.get('title')
         series.Slug = request.POST.get('slug')
+        
+        features = request.POST.getlist('features[]')
+        spec_titles = request.POST.getlist('spec-titles[]')
+        spec_values = request.POST.getlist('spec-values[]')
 
         try:
             series.save()
+
+            if features:
+                for feature in features:
+                    Features.objects.create(Series=series,Title=feature)
+
+            if spec_titles and spec_values:
+                for x in range(len(spec_titles)):
+                    t = spec_titles[x]
+                    v = spec_values[x]
+                    Specification.objects.create(Series=series,Title=t,Value=v)
+
             messages.success(request,'Series Details Edited Successfully ... !')
             return redirect('series')
         except Exception as exception:
@@ -181,10 +196,44 @@ def add_application(request):
 @login_required
 def edit_application(request,slug):
     application = Application.objects.get(Slug=slug)
+    features = Features.objects.filter(Application=application)
+
+    if request.method == 'POST':
+        application.Title = request.POST.get('title')
+        application.Slug = request.POST.get('slug')
+        application.Sub_Title = request.POST.get('sub_title')
+        application.Description = request.POST.get('description')
+
+        if len(request.FILES) > 0 :
+            application.Image = request.FILES.get('image')
+
+        works = request.FILES.getlist('works')
+
+        features = request.POST.getlist('features[]')
+
+        try:
+            application.save()
+
+            if features:
+                for feature in features:
+                    Features.objects.create(Application=application,Title=feature)
+
+            if works:
+                for work in works:
+                    Works.objects.create(Application=application,Image=work)
+
+            messages.success(request,'New Application Added Successfully ... !')
+            return redirect('applications')
+        
+        except Exception as exception:
+            messages.warning(request,exception)
+            return redirect('add-application')
+
 
     context = {
         'page' : 'applications',
-        'application' : application
+        'application' : application,
+        'features' : features
     }
     return render(request,'Dashboard/Applications/edit-application.html',context)
 

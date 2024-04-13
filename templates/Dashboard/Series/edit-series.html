@@ -50,12 +50,12 @@
 
                 <div class="intro-y col-span-12 sm:col-span-6">
                     <label for="input-wizard-2" class="form-label">Main Image</label>
-                    <input name="image" type="file" class="form-control file" required>
+                    <input name="image" type="file" class="form-control file">
                 </div>
 
                 <div class="intro-y col-span-12 sm:col-span-6">
                     <label for="input-wizard-2" class="form-label">Specification Image</label>
-                    <input name="t-image" type="file" class="form-control file" required>
+                    <input name="t-image" type="file" class="form-control file">
                 </div>
 
                 <div class="col-span-12">
@@ -85,8 +85,8 @@
                 <div class="col-span-12" id="features-div">
                     {% for feature in features %}
                         <div class="input-group col-span-6 mt-3"> 
-                            <input value="{{ feature.Title }}" name="features[]" type="text" class="form-control" placeholder="Enter Feature Title Here" aria-label="Price" aria-describedby="input-group-price" required>
-                            <div class="input-group-text feature-delete"><i class="fa-regular fa-trash-can"></i></div>
+                            <input value="{{ feature.Title }}" type="text" class="form-control feature-input" data-id="{{ feature.id }}" placeholder="Enter Feature Title Here" aria-label="Price" aria-describedby="input-group-price" required>
+                            <div class="input-group-text feature-delete" data-id="{{ feature.id }}"><i class="fa-regular fa-trash-can"></i></div>
                         </div>
                     {% endfor %}
                 </div>
@@ -104,9 +104,9 @@
                 <div class="col-span-12" id="spec-div">
                     {% for spec in specifications %}
                         <div class="input-group col-span-6 mt-3"> 
-                            <input value="{{ spec.Title }}" name="spec-titles[]" type="text" class="form-control" placeholder="Enter Specification Title Here" aria-label="Price" aria-describedby="input-group-price" required>
-                            <input value="{{ spec.Value }}" name="spec-values[]" type="text" class="form-control" placeholder="Enter Specification Value Here" aria-label="Price" aria-describedby="input-group-price" required>
-                            <div class="input-group-text spec-delete"><i class="fa-regular fa-trash-can"></i></div>
+                            <input value="{{ spec.Title }}" data-id="{{spec.id}}" type="text" class="form-control spec-title" placeholder="Enter Specification Title Here" aria-label="Price" aria-describedby="input-group-price" required>
+                            <input value="{{ spec.Value }}" data-id="{{spec.id}}" type="text" class="form-control spec-value" placeholder="Enter Specification Value Here" aria-label="Price" aria-describedby="input-group-price" required>
+                            <div class="input-group-text spec-delete" data-id="{{ spec.id }}"><i class="fa-regular fa-trash-can"></i></div>
                         </div>
                     {% endfor %}
                 </div>

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page %} 
-    <li class="breadcrumb-item active" aria-current="page">Add Application</li>
+    <li class="breadcrumb-item active" aria-current="page">Edit Application</li>
 {% endblock page %}
 
 {% block content %}
@@ -21,7 +21,7 @@
 
 <div class="intro-y box py-10 mt-5">
 
-    <h2 class="text-primary" style=" font-size: 30px; font-weight: 500; text-align: center;">Add Application</h2>
+    <h2 class="text-primary" style=" font-size: 30px; font-weight: 500; text-align: center;">Edit Application</h2>
     
     <div class="px-3 sm:px-10 mt-10 pt-10 border-t border-slate-200/60 dark:border-darkmode-400">
         <form action="" method="post" enctype="multipart/form-data">
@@ -29,7 +29,51 @@
             <div class="grid grid-cols-12 gap-4 gap-y-5 mt-5"> 
                 <div class="intro-y col-span-12 sm:col-span-6">
                     <label for="input-wizard-2" class="form-label">Title</label>
-                    <input name="title" id="title" type="text" class="form-control" placeholder="Enter Series Title Here" required maxlength="50">
+                    <input value="{{ application.Title }}" name="title" id="title" type="text" class="form-control" placeholder="Enter Application Title Here" required maxlength="50">
+                </div>
+
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label for="input-wizard-2" class="form-label">Slug</label>
+                    <input value="{{ application.Slug }}" name="slug" id="slug" type="text" class="form-control" placeholder="Enter Application Slug Here" required maxlength="50">
+                </div>
+
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label for="input-wizard-2" class="form-label">Image</label>
+                    <input name="image" type="file" class="form-control file">
+                </div>
+
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label for="input-wizard-2" class="form-label">Sub Title</label>
+                    <input value="{{ application.Sub_Title }}" name="sub_title" type="text" class="form-control" placeholder="Enter Application Sub Title Here" required maxlength="100">
+                </div>
+
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label for="input-wizard-2" class="form-label">Work Images</label>
+                    <input name="works" type="file" class="form-control file" multiple>
+                </div>
+
+                <div class="intro-y col-span-12 sm:col-span-12">
+                    <label for="input-wizard-2" class="form-label">Description</label>
+                    <textarea name="description" id="" cols="30" rows="5" class="form-control" placeholder="Enter Application Description Here">{{ application.Description }}</textarea>
+                </div>
+
+                <div class="col-span-12">
+                    <h2 class="text-primary py-5" style=" font-size: 20px; font-weight: 500; text-align: center;">Features</h2>
+                </div>
+
+                <div class="items-center text-center col-span-12">
+                    <button class="btn btn-primary shadow-md" type="button" id="add-feature">
+                        <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="col-span-12" id="features-div">
+                    {% for feature in features %}
+                        <div class="input-group col-span-6 mt-3"> 
+                            <input value="{{ feature.Title }}" type="text" class="form-control feature-input" data-id="{{ feature.id }}" placeholder="Enter Feature Title Here" aria-label="Price" aria-describedby="input-group-price" required>
+                            <div class="input-group-text feature-delete" data-id="{{ feature.id }}"><i class="fa-regular fa-trash-can"></i></div>
+                        </div>
+                    {% endfor %}
                 </div>
 
                 <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
