@@ -1,0 +1,116 @@
+{% extends 'Dashboard/base.html' %}
+{% load static %}
+
+{% block page %} 
+    <li class="breadcrumb-item active" aria-current="page">Add Series</li>
+{% endblock page %}
+
+{% block content %}
+
+<!-- BEGIN: Notification -->
+{% if messages %}
+    {% for message in messages %}
+        <div class="intro-y col-span-11 alert alert-{{ message.tags }} alert-dismissible show flex items-center mb-6 mt-5 text-white" role="alert">
+            <span><i data-lucide="info" class="w-4 h-4 mr-2"></i></span>
+            <span>{{ message }}</span>
+            <button type="button" class="btn-close text-white" data-tw-dismiss="alert" aria-label="Close"> <i data-lucide="x" class="w-4 h-4"></i> </button>
+        </div>
+    {% endfor %}
+{% endif %}
+<!-- BEGIN: Notification -->
+
+<div class="intro-y box py-10 mt-5">
+
+    <h2 class="text-primary" style=" font-size: 30px; font-weight: 500; text-align: center;">Add Series</h2>
+    
+    <div class="px-3 sm:px-10 mt-10 pt-10 border-t border-slate-200/60 dark:border-darkmode-400">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="grid grid-cols-12 gap-4 gap-y-5 mt-5"> 
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label for="input-wizard-2" class="form-label">Title</label>
+                    <input name="title" id="title" type="text" class="form-control" placeholder="Enter Series Title Here" required maxlength="50">
+                </div>
+
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label for="input-wizard-2" class="form-label">Slug</label>
+                    <input name="slug" id="slug" type="text" class="form-control" placeholder="Enter Series Slug Here" required>
+                </div>
+
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label for="input-wizard-2" class="form-label">Heading</label>
+                    <input name="heading" type="text" class="form-control" placeholder="Enter Series Heading Here" required maxlength="50">
+                </div>
+
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label for="input-wizard-2" class="form-label">Series Models</label>
+                    <input name="models" type="text" class="form-control" placeholder="Enter Series Models Here" required maxlength="50">
+                </div>
+
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label for="input-wizard-2" class="form-label">Main Image</label>
+                    <input name="image" type="file" class="form-control file" required>
+                </div>
+
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label for="input-wizard-2" class="form-label">Specification Image</label>
+                    <input name="t-image" type="file" class="form-control file" required>
+                </div>
+
+                <div class="col-span-12">
+                    <h2 class="text-primary py-5" style=" font-size: 20px; font-weight: 500; text-align: center;">Series Details</h2>
+                </div>
+
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label for="input-wizard-2" class="form-label">Section Title</label>
+                    <input name="s-title" type="text" class="form-control" placeholder="Enter Section Title Here" required maxlength="100">
+                </div>
+
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label for="input-wizard-2" class="form-label">Section Description</label>
+                    <textarea name="description" id="" cols="30" rows="5" class="form-control" placeholder="Enter Series Description Here"></textarea>
+                </div>
+
+                <div class="col-span-12">
+                    <h2 class="text-primary py-5" style=" font-size: 20px; font-weight: 500; text-align: center;">Features</h2>
+                </div>
+
+                <div class="items-center text-center col-span-12">
+                    <button class="btn btn-primary shadow-md" type="button" id="add-feature">
+                        <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="col-span-12" id="features-div">
+                    <div class="input-group col-span-6"> 
+                        <input name="features[]" type="text" class="form-control" placeholder="Enter Feature Title Here" aria-label="Price" aria-describedby="input-group-price" required>
+                        <div class="input-group-text feature-delete"><i class="fa-regular fa-trash-can"></i></div>
+                    </div>
+                </div>
+
+                <div class="col-span-12">
+                    <h2 class="text-primary py-5" style=" font-size: 20px; font-weight: 500; text-align: center;">Specifications</h2>
+                </div>
+
+                <div class="items-center text-center col-span-12">
+                    <button class="btn btn-primary shadow-md" type="button" id="add-spec">
+                        <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="col-span-12" id="spec-div">
+                    <div class="input-group col-span-6"> 
+                        <input name="spec-titles[]" type="text" class="form-control" placeholder="Enter Specification Title Here" aria-label="Price" aria-describedby="input-group-price" required>
+                        <input name="spec-values[]" type="text" class="form-control" placeholder="Enter Specification Value Here" aria-label="Price" aria-describedby="input-group-price" required>
+                        <div class="input-group-text spec-delete"><i class="fa-regular fa-trash-can"></i></div>
+                    </div>
+                </div>
+
+                <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
+                    <button class="btn btn-primary w-24 ml-2" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

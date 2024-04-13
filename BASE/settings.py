@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'U_Auth', # app for authentication
     'ErrHandler', # app for error handling 
     'Core', # to handle functionalities
+    'WebPage', # to handle website pages
 ]
 
 MIDDLEWARE = [

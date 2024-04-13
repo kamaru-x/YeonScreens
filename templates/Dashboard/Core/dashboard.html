@@ -11,7 +11,7 @@
 
 {% block content %}
 <div class="grid grid-cols-12 gap-6">
-    <div class="col-span-12 2xl:col-span-9">
+    <div class="col-span-12 2xl:col-span-12">
         <div class="grid grid-cols-12 gap-6">
             <!-- BEGIN: General Report -->
             <div class="col-span-12 mt-8">
@@ -32,8 +32,8 @@
                                             <div class="report-box__indicator bg-success tooltip cursor-pointer" title="33% Higher than last month"> 33% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i> </div>
                                         </div> -->
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">100</div>
-                                    <div class="text-base text-slate-500 mt-1">Total Products</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ series.count }}</div>
+                                    <div class="text-base text-slate-500 mt-1">Total Series</div>
                                 </div>
                             </div>
                         </a>
@@ -48,8 +48,8 @@
                                             <div class="report-box__indicator bg-danger tooltip cursor-pointer" title="2% Lower than last month"> 2% <i data-lucide="chevron-down" class="w-4 h-4 ml-0.5"></i> </div>
                                         </div> -->
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">100</div>
-                                    <div class="text-base text-slate-500 mt-1">Total Services</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ applications.count }}</div>
+                                    <div class="text-base text-slate-500 mt-1">Total Applications</div>
                                 </div>
                             </div>
                         </a>
@@ -59,13 +59,13 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i data-lucide="file" class="report-box__icon text-warning"></i> 
+                                        <i data-lucide="award" class="report-box__icon text-warning"></i> 
                                         <!-- <div class="ml-auto">
                                             <div class="report-box__indicator bg-success tooltip cursor-pointer" title="12% Higher than last month"> 12% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i> </div>
                                         </div> -->
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">100</div>
-                                    <div class="text-base text-slate-500 mt-1">Total Enquiries</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ projects.count }}</div>
+                                    <div class="text-base text-slate-500 mt-1">Total Projects</div>
                                 </div>
                             </div>
                         </a>
@@ -75,13 +75,13 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i data-lucide="image" class="report-box__icon text-success"></i> 
+                                        <i data-lucide="tv" class="report-box__icon text-success"></i> 
                                         <!-- <div class="ml-auto">
                                             <div class="report-box__indicator bg-success tooltip cursor-pointer" title="22% Higher than last month"> 22% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i> </div>
                                         </div> -->
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">100</div>
-                                    <div class="text-base text-slate-500 mt-1">Total Albums</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ events.count }}</div>
+                                    <div class="text-base text-slate-500 mt-1">Total Events</div>
                                 </div>
                             </div>
                         </a>

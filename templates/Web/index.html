@@ -1,0 +1,592 @@
+{% extends 'Web/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- main-area -->
+<main class="main-area fix">
+
+    <!-- banner-area -->
+    <section class="slider__area">
+         <div class="swiper slider-active">
+             <div class="swiper-wrapper">
+                 <!-- System Start -->
+                 <div class="swiper-slide slider__bg system-banner" data-background="{% static 'web/images/Banners/1920x1080.jpg' %}">
+                     <div class="container custom-container-two">
+                         <div class="row">
+                             <div class="col-xl-7 col-lg-8">
+                                 <div class="slider__content">
+                                     <span class="sub-title">Founded in 1985</span>
+                                     <h2 class="title">We Build That Everything
+                                     Possible by Us!</h2>
+                                     <a href="" class="btn">Learn More <img src="{% static 'web/img/icons/right_arrow.svg' %}" alt="" class="injectable"></a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <!-- System End -->
+
+                 <!-- Mobile Start -->
+                 <div class="swiper-slide slider__bg mobile-banner" data-background="{% static 'web/images/Banners/800x1280.jpg' %}">
+                     <div class="container custom-container-two">
+                         <div class="row">
+                             <div class="col-xl-7 col-lg-8">
+                                 <div class="slider__content">
+                                     <span class="sub-title">Founded in 1985</span>
+                                     <h2 class="title">We Build That Everything
+                                     Possible by Us!</h2>
+                                     <a href="" class="btn">Learn More <img src="{% static 'web/img/icons/right_arrow.svg' %}" alt="" class="injectable"></a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <!-- Mobile End -->
+             </div>
+         </div>
+    </section>
+    <!-- banner-area-end -->
+
+     <!-- about-area -->
+     <section class="about__area-five grey-bg-two section-py-120">
+         <div class="container">
+             <div class="row gutter-24 align-items-center justify-content-center">
+                 <div class="col-lg-6 col-md-9">
+                     <div class="about__img-wrap-five">
+                         <img src="https://21stcenturyav.com/wp-content/uploads/2023/09/outdoor-led-video-wall-for-sale-jpg.webp" width="388px" height="388px" alt="img" class="wow img-custom-anim-right animated" data-wow-duration="1.5s" data-wow-delay="0.2s">
+                         <img src="https://www.oseltech.com/wp-content/uploads/2019/09/SupremeX1.jpg" width="313px" height="334px" alt="img" class="wow img-custom-anim-left animated" data-wow-duration="1.5s" data-wow-delay="0.4s">
+                         <img src="https://5.imimg.com/data5/SELLER/Default/2022/3/GY/XW/BJ/10900499/hire-p3-led-screen-wall-service-for-night-concert-in-jaipur.jpg" width="252px" height="130px" alt="img" class="wow img-custom-anim-top animated" data-wow-duration="1.5s" data-wow-delay="0.6s">
+                         <div class="experience__box-two wow img-custom-anim-top animated" data-wow-duration="1.5s" data-wow-delay="0.8s">
+                             <h2 class="title">25</h2>
+                             <span>Years <br> Of Experience</span>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-lg-6">
+                     <div class="about__content-five">
+                         <div class="section__title section__title-three mb-30">
+                             <span class="sub-title">About Our Company</span>
+                             <h2 class="title">Awesome services from industrial company</h2>
+                         </div>
+                         <p>A factory is a business that produces goods or products. These goods can range from consumer products such as clothing and electronics to industrial products such as machinery and equipment Factories are typically large buildings or complexes that are equipped. Factory companies employ a large number of people, from factory workers and supervisors to managers and executives.</p>
+                         <ul class="list-wrap banner__list-box">
+                             <li><i class="fas fa-check"></i>5 Year Warranty on Workmanship</li>
+                             <li><i class="fas fa-check"></i>Every Project is Run by a Team of Experts</li>
+                             <li><i class="fas fa-check"></i>We Save You Time, Money, and Space</li>
+                         </ul>
+                         <div class="about__content-bottom about__content-bottom-two">
+                             <div class="about__customer-box">
+                                 <ul class="list-wrap customer">
+                                     <li><img src="{% static 'web/img/images/author01.png' %}" alt="img"></li>
+                                     <li><img src="{% static 'web/img/images/author02.png' %}" alt="img"></li>
+                                     <li><img src="{% static 'web/img/images/author03.png' %}" alt="img"></li>
+                                     <li><img src="{% static 'web/img/images/author04.png' %}" alt="img"></li>
+                                 </ul>
+                                 <h4 class="title">15k Loyal Customer</h4>
+                             </div>
+                             <a href="" class="btn btn-two">More About Us<img src="{% static 'web/img/icons/right_arrow.svg' %}" alt="" class="injectable"></a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!-- about-area-end -->
+
+     <!-- services-area -->
+     <section class="services__area-three section-pt-120 section-pb-95">
+         <div class="container">
+             <div class="row justify-content-center">
+                 <div class="col-xl-5 col-lg-6">
+                     <div class="section__title section__title-three text-center mb-60">
+                         <span class="sub-title">Our Services</span>
+                         <h2 class="title">Service We’re Offering to Our Customers</h2>
+                     </div>
+                 </div>
+             </div>
+             <div class="row gutter-24 justify-content-center">
+
+                {% for application in applications %}
+                <div class="col-xl-3 col-lg-4 col-md-6 service" data-aos="fade-up" data-aos-delay="200">
+                    <div class="services__item-two shine__animate-item">
+                        <div class="services__thumb-two">
+                            <a href="{% url 'application' application.Slug %}" class="shine__animate-link">
+                                <img class="service-img" src="{{ application.Image.url }}" alt="img">
+                            </a>
+                        </div>
+                        <div class="services__content-two services__content-six service-content">
+                            <h4 class="title"><a href="{% url 'application' application.Slug %}">{{ application.Title }}</a></h4>
+                            <p>{{ application.Description | slice:':100' }}...</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+             </div>
+         </div>
+     </section>
+     <!-- services-area-end -->
+
+     <!-- project-area -->
+     <section class="project__area project__bg" data-background="{% static 'web/img/bg/project__bg.jpg' %}">
+         <div class="container">
+             <div class="row align-items-center">
+                 <div class="col-xl-5 col-lg-6 col-md-8">
+                     <div class="section__title white-title mb-70">
+                         <h2 class="title">Project we’ve done in very recent time</h2>
+                         <!-- <h1 class="number">03</h1> -->
+                     </div>
+                 </div>
+                 <div class="col-lg-6 col-md-4">
+                     <div class="project__nav">
+                         <button class="project-button-prev"><i class="renova-left-arrow"></i></button>
+                         <button class="project-button-next"><i class="renova-right-arrow"></i></button>
+                     </div>
+                 </div>
+             </div>
+             <div class="swiper project-active">
+                 <div class="swiper-wrapper">
+
+                    {% for project in projects %}
+                        <div class="swiper-slide">
+                            <div class="project__item">
+                                <div class="project__thumb">
+                                    {% if project.Image %}
+                                        <a href="{% url 'projects' %}"><img src="{{ project.Image.url }}" alt="img"></a>
+                                    {% else %}
+                                        <a href="{% url 'projects' %}"><img src="{% static 'dashboard/images/image.jpg' %}" alt="img"></a>
+                                    {% endif %}
+                                </div>
+                                <div class="project__content">
+                                    <div class="content">
+                                        <h2 class="title"><a href="">{{ project.Title }}</a></h2>
+                                        <!-- <span>December 2023 - March 2024</span> -->
+                                    </div>
+                                    <div class="project__icon">
+                                        <a href="{% url 'projects' %}"><i class="fas fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!-- project-area-end -->
+
+     <!-- office-area -->
+     <section class="office__area-two grey-bg section-py-120">
+         <div class="container">
+             <div class="row">
+                 <div class="col-xl-5 col-lg-6">
+                     <div class="section__title section__title-three mb-60">
+                         <span class="sub-title">Our Worldwide Offices</span>
+                         <h2 class="title">Branches we located in all over the world</h2>
+                     </div>
+                 </div>
+             </div>
+             <div class="row gutter-24">
+                 <div class="col-lg-6">
+                     <div class="office__nav-wrap">
+                         <ul class="nav nav-tabs" id="myTab" role="tablist">
+                             <li class="nav-item" role="presentation">
+                                 <button class="nav-link active" id="itemOne-tab" data-bs-toggle="tab" data-bs-target="#itemOne-tab-pane" type="button" role="tab" aria-controls="itemOne-tab-pane" aria-selected="true">
+                                     <img src="https://themegenix.com/demo/renova/assets/img/images/office_img01.jpg" alt="img">
+                                     <span>Kerala India <i class="renova-right-arrow"></i></span>
+                                 </button>
+                             </li>
+                             <li class="nav-item" role="presentation">
+                                 <button class="nav-link" id="itemTwo-tab" data-bs-toggle="tab" data-bs-target="#itemTwo-tab-pane" type="button" role="tab" aria-controls="itemTwo-tab-pane" aria-selected="false">
+                                     <img src="https://themegenix.com/demo/renova/assets/img/images/office_img02.jpg" alt="img">
+                                     <span>Sydney Australia <i class="renova-right-arrow"></i></span>
+                                 </button>
+                             </li>
+                             <li class="nav-item" role="presentation">
+                                 <button class="nav-link" id="itemThree-tab" data-bs-toggle="tab" data-bs-target="#itemThree-tab-pane" type="button" role="tab" aria-controls="itemThree-tab-pane" aria-selected="false">
+                                     <img src="https://themegenix.com/demo/renova/assets/img/images/office_img03.jpg" alt="img">
+                                     <span>Atlanta USA <i class="renova-right-arrow"></i></span>
+                                 </button>
+                             </li>
+                         </ul>
+                     </div>
+                 </div>
+                 <div class="col-lg-6">
+                     <div class="tab-content" id="myTabContent">
+                         <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel" aria-labelledby="itemOne-tab" tabindex="0">
+                             <div class="office__item-two">
+                                 <div class="office__item-two-top">
+                                     <div class="office__thumb-two">
+                                         <img src="https://themegenix.com/demo/renova/assets/img/images/office_det_img01.jpg" alt="img">
+                                     </div>
+                                     <div class="office__content-two">
+                                         <h2 class="title">Kerala India</h2>
+                                         <p>Neque aenean lacus bladit sollicitudin dui integer nullam elementum fringilla aptent cursus habitasse,</p>
+                                         <a href="" class="btn border-btn">Contact Us <img src="{% static 'web/img/icons/right_arrow.svg' %}" alt="" class="injectable"></a>
+                                     </div>
+                                 </div>
+                                 <div class="office__info-list">
+                                     <ul class="list-wrap">
+                                         <li>
+                                             <div class="icon"><i class="renova-marker"></i></div>
+                                             <div class="content">
+                                                 <h2 class="title">3rd Floor Hilite Business park</h2>
+                                             </div>
+                                         </li>
+                                         <li>
+                                             <div class="icon"><i class="renova-envelope-open"></i></div>
+                                             <div class="content">
+                                                 <h2 class="title"><a href="mailto:info@renova-construction.com">info@yeonscreens.com</a></h2>
+                                             </div>
+                                         </li>
+                                         <li>
+                                             <div class="icon"><i class="renova-phone"></i></div>
+                                             <div class="content">
+                                                 <h2 class="title"><a href="tel:0123456789">+91 9876543210</a></h2>
+                                             </div>
+                                         </li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="tab-pane fade" id="itemTwo-tab-pane" role="tabpanel" aria-labelledby="itemTwo-tab" tabindex="0">
+                             <div class="office__item-two">
+                                 <div class="office__item-two-top">
+                                     <div class="office__thumb-two">
+                                         <img src="{% static 'web/img/images/office_det_img02.jpg' %}" alt="img">
+                                     </div>
+                                     <div class="office__content-two">
+                                         <h2 class="title">Sydney Australia</h2>
+                                         <p>Neque aenean lacus bladit sollicitudin dui integer nullam elementum fringilla aptent cursus habitasse,</p>
+                                         <a href="" class="btn border-btn">Contact Us <img src="{% static 'web/img/icons/right_arrow.svg' %}" alt="" class="injectable"></a>
+                                     </div>
+                                 </div>
+                                 <div class="office__info-list">
+                                     <ul class="list-wrap">
+                                         <li>
+                                             <div class="icon"><i class="renova-marker"></i></div>
+                                             <div class="content">
+                                                 <h2 class="title">256 Dancing Street, Sydney Australia</h2>
+                                             </div>
+                                         </li>
+                                         <li>
+                                             <div class="icon"><i class="renova-envelope-open"></i></div>
+                                             <div class="content">
+                                                 <h2 class="title"><a href="mailto:info@yeonscreens.com">info@yeonscreens.com</a></h2>
+                                             </div>
+                                         </li>
+                                         <li>
+                                             <div class="icon"><i class="renova-phone"></i></div>
+                                             <div class="content">
+                                                 <h2 class="title"><a href="tel:0123456789">+(256) 3258-362158</a></h2>
+                                             </div>
+                                         </li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="tab-pane fade" id="itemThree-tab-pane" role="tabpanel" aria-labelledby="itemThree-tab" tabindex="0">
+                             <div class="office__item-two">
+                                 <div class="office__item-two-top">
+                                     <div class="office__thumb-two">
+                                         <img src="{% static 'web/img/images/office_det_img03.jpg' %}" alt="img">
+                                     </div>
+                                     <div class="office__content-two">
+                                         <h2 class="title">Atlanta USA</h2>
+                                         <p>Neque aenean lacus bladit sollicitudin dui integer nullam elementum fringilla aptent cursus habitasse,</p>
+                                         <a href="" class="btn border-btn">Contact Us <img src="{% static 'web/img/icons/right_arrow.svg' %}" alt="" class="injectable"></a>
+                                     </div>
+                                 </div>
+                                 <div class="office__info-list">
+                                     <ul class="list-wrap">
+                                         <li>
+                                             <div class="icon"><i class="renova-marker"></i></div>
+                                             <div class="content">
+                                                 <h2 class="title">256 Dancing Street, Atlanta USA</h2>
+                                             </div>
+                                         </li>
+                                         <li>
+                                             <div class="icon"><i class="renova-envelope-open"></i></div>
+                                             <div class="content">
+                                                 <h2 class="title"><a href="mailto:info@yeonscreens.com">info@yeonscreens.com</a></h2>
+                                             </div>
+                                         </li>
+                                         <li>
+                                             <div class="icon"><i class="renova-phone"></i></div>
+                                             <div class="content">
+                                                 <h2 class="title"><a href="tel:+919876543210">+(256) 3258-362158</a></h2>
+                                             </div>
+                                         </li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!-- office-area-end -->
+
+     <!-- project-area -->
+     <section class="project__area section-pb-95 section-pt-95 mt-5">
+         <div class="container-fliud">
+             <div class="row justify-content-center">
+                 <div class="col-xl-6 col-lg-8">
+                     <div class="section__title section__title-three text-center white-title mb-60">
+                         <span class="sub-title" style="color: #cddc2c;">Our Products</span>
+                         <h2 class="title" style="color: black;">Some of Our Most Selling Products</h2>
+                     </div>
+                 </div>
+             </div>
+             <div class="project__item-wrap">
+                 <div class="row gx-0">
+                     <div class="col-lg-3 col-sm-6">
+                         <div class="project__item-three shine__animate-item">
+                             <div class="project__content-three">
+                                 <h5 class="title"><a href="">LED SCREEN 1</a></h5>
+                             </div>
+                             <div class="project__thumb-three">
+                                 <a href="" class="shine__animate-link"><img src="https://leemanledscreen.com/wp-content/uploads/2022/05/Led-light-pole-digital-signage-1.jpg" alt="img"></a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-lg-3 col-sm-6">
+                         <div class="project__item-three shine__animate-item">
+                             <div class="project__content-three">
+                                 <h5 class="title"><a href="">LED SCREEN 2</a></h5>
+                             </div>
+                             <div class="project__thumb-three">
+                                 <a href="" class="shine__animate-link"><img src="https://www.leemanled.com/wp-content/uploads/2022/12/6145af1eae5c6.png" alt="img"></a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-lg-3 col-sm-6">
+                         <div class="project__item-three shine__animate-item">
+                             <div class="project__content-three">
+                                 <h5 class="title"><a href="">LED SCREEN 3</a></h5>
+                             </div>
+                             <div class="project__thumb-three">
+                                 <a href="" class="shine__animate-link"><img src="https://5.imimg.com/data5/SELLER/Default/2023/7/326884859/HM/XV/VH/93902993/outdoor-led-display-500x500.jpg" alt="img"></a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-lg-3 col-sm-6">
+                         <div class="project__item-three shine__animate-item">
+                             <div class="project__content-three">
+                                 <h5 class="title"><a href="">LED SCREEN 4</a></h5>
+                             </div>
+                             <div class="project__thumb-three">
+                                 <a href="" class="shine__animate-link"><img src="https://www.pureimageuk.com/wp-content/uploads/2018/04/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7-2018-04-30-%E4%B8%8A%E5%8D%8810.13.40.png" alt="img"></a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!-- project-area-end -->
+
+     <!-- work-area -->
+     <section class="work__area-two section-pt-120 section-pb-90">
+         <div class="container">
+             <div class="row justify-content-center">
+                 <div class="col-xl-6 col-lg-8">
+                     <div class="section__title section__title-three text-center white-title mb-60">
+                         <span class="sub-title">We strive to be a step ahead</span>
+                         <h2 class="title">The four steps working process to get amazing works</h2>
+                     </div>
+                 </div>
+             </div>
+             <div class="work__item-wrap">
+                 <div class="row">
+                     <div class="col-lg-3 col-md-6">
+                         <div class="work__item">
+                             <div class="work__icon">
+                                 <i class="renova-note"></i>
+                                 <span class="number">01</span>
+                             </div>
+                             <div class="work__content-two">
+                                 <h4 class="title"><a href="">Project Research</a></h4>
+                                 <p>One of the key components of best logistics solutions industy</p>
+                                 <a href="" class="link-btn">Learn More <i class="renova-right-arrow-2"></i></a>
+                             </div>
+                             <div class="work__arrow">
+                                 <img src="{% static 'web/img/icons/right_arrow02.svg' %}" alt="" class="injectable">
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-lg-3 col-md-6">
+                         <div class="work__item">
+                             <div class="work__icon">
+                                 <i class="renova-construction"></i>
+                                 <span class="number">02</span>
+                             </div>
+                             <div class="work__content-two">
+                                 <h4 class="title"><a href="">Development</a></h4>
+                                 <p>One of the key components of best logistics solutions industy</p>
+                                 <a href="" class="link-btn">Learn More <i class="renova-right-arrow-2"></i></a>
+                             </div>
+                             <div class="work__arrow">
+                                 <img src="{% static 'web/img/icons/right_arrow02.svg' %}" alt="" class="injectable">
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-lg-3 col-md-6">
+                         <div class="work__item">
+                             <div class="work__icon">
+                                 <i class="renova-unity"></i>
+                                 <span class="number">03</span>
+                             </div>
+                             <div class="work__content-two">
+                                 <h4 class="title"><a href="">Team Works</a></h4>
+                                 <p>One of the key components of best logistics solutions industy</p>
+                                 <a href="" class="link-btn">Learn More <i class="renova-right-arrow-2"></i></a>
+                             </div>
+                             <div class="work__arrow">
+                                 <img src="{% static 'web/img/icons/right_arrow02.svg' %}" alt="" class="injectable">
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-lg-3 col-md-6">
+                         <div class="work__item">
+                             <div class="work__icon">
+                                 <i class="renova-rocket-2"></i>
+                                 <span class="number">04</span>
+                             </div>
+                             <div class="work__content-two">
+                                 <h4 class="title"><a href="">Quality Finished</a></h4>
+                                 <p>One of the key components of best logistics solutions industy</p>
+                                 <a href="" class="link-btn">Learn More <i class="renova-right-arrow-2"></i></a>
+                             </div>
+                             <div class="work__arrow">
+                                 <img src="{% static 'web/img/icons/right_arrow02.svg' %}" alt="" class="injectable">
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!-- work-area-end -->
+
+     <!-- video-area -->
+     <section class="video__area-two section-pt-120">
+         <div class="container">
+             <div class="row justify-content-center">
+                 <div class="col-xl-8 col-lg-10">
+                     <div class="section__title section__title-three text-center mb-60">
+                         <span class="sub-title">Watch Our Video</span>
+                         <h2 class="title">We help our clients realize their business ideas and achieve great results</h2>
+                     </div>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col-lg-12">
+                     <div class="video__img">
+                         <img src="https://i0.wp.com/www.unit-led.com/wp-content/uploads/2023/03/stage-led-display-screen-1.png?w=800&ssl=1" alt="img">
+                         <a href="http://www.youtube.com/watch?v=1iIZeIy7TqM" class="play-btn popup-video"><i class="renova-play-2"></i></a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!-- video-area-end -->
+
+     <!-- brand-area -->
+     <div class="brand__area section-pb-120 section-pt-120">
+         <div class="container">
+             <div class="swiper brand-active">
+                 <div class="swiper-wrapper">
+                     <div class="swiper-slide">
+                         <div class="brand__item">
+                             <img src="{% static 'web/img/brand/brand_img01.png' %}" alt="img">
+                         </div>
+                     </div>
+                     <div class="swiper-slide">
+                         <div class="brand__item">
+                             <img src="{% static 'web/img/brand/brand_img02.png' %}" alt="img">
+                         </div>
+                     </div>
+                     <div class="swiper-slide">
+                         <div class="brand__item">
+                             <img src="{% static 'web/img/brand/brand_img03.png' %}" alt="img">
+                         </div>
+                     </div>
+                     <div class="swiper-slide">
+                         <div class="brand__item">
+                             <img src="{% static 'web/img/brand/brand_img04.png' %}" alt="img">
+                         </div>
+                     </div>
+                     <div class="swiper-slide">
+                         <div class="brand__item">
+                             <img src="{% static 'web/img/brand/brand_img05.png' %}" alt="img">
+                         </div>
+                     </div>
+                     <div class="swiper-slide">
+                         <div class="brand__item">
+                             <img src="{% static 'web/img/brand/brand_img06.png' %}" alt="img">
+                         </div>
+                     </div>
+                     <div class="swiper-slide">
+                         <div class="brand__item">
+                             <img src="{% static 'web/img/brand/brand_img03.png' %}" alt="img">
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <!-- brand-area-end -->
+
+     <!-- consultation-area -->
+     <section class="consultation__area grey-bg section-py-120">
+         <div class="container">
+             <div class="row gx-0">
+                 <div class="col-lg-7">
+                     <div class="consultation__img">
+                         <img src="https://themegenix.com/demo/renova/assets/img/images/consultation_img.jpg" alt="img">
+                     </div>
+                 </div>
+                 <div class="col-lg-5">
+                     <div class="consultation__form-wrap">
+                         <h2 class="title">Schedule free consultation</h2>
+                         <form action="#" class="consultation__form">
+                             <div class="form-grp">
+                                 <label for="name">Enter your full name*</label>
+                                 <input type="text" id="name">
+                             </div>
+                             <div class="form-grp">
+                                 <label for="email">Your email address*</label>
+                                 <input type="email" id="email">
+                             </div>
+                             <div class="form-grp">
+                                 <label for="number">Your phone number*</label>
+                                 <input type="number" id="number">
+                             </div>
+                             <div class="form-grp select-grp">
+                                 <label for="select">What are you looking for?</label>
+                                 <select name="select" id="select" class="orderby">
+                                     <option value="Select your subject">Select your subject</option>
+                                     <option value="Subject One">Subject One</option>
+                                     <option value="Subject Two">Subject Two</option>
+                                     <option value="Subject Three">Subject Three</option>
+                                     <option value="Subject Four">Subject Four</option>
+                                 </select>
+                             </div>
+                             <div class="form-grp">
+                                 <label for="message">Write your message</label>
+                                 <textarea name="message" id="message"></textarea>
+                             </div>
+                             <button type="submit" class="btn btn-two">Get your free quote</button>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!-- consultation-area-end -->
+</main>
+<!-- main-area-end -->
+{% endblock content %}

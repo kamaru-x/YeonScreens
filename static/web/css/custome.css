@@ -1,0 +1,36 @@
+.product-menu {
+    display: flex !important;
+}
+
+.nav-product-image{
+    width: 200px !important;
+    max-width: 200px !important;
+}
+
+.slider__content{
+    background: none !important;
+    overflow: visible !important;
+}
+
+.banner-btn{
+    background-color: #cddc2c !important;
+    color: #ffffff !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .product-menu {
+        display: block !important;
+        text-align: center;
+    }
+}
+
+.service-img {
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+
+.service-content{
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    text-align: center;
+}

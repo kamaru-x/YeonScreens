@@ -13,6 +13,6 @@ $(document).ready(function(){
         final = final.replace(/\s+/g, '-'); // Replace spaces with hyphens
         final = final.replace(/-+/g, '-'); // Replace consecutive hyphens with a single hyphen
         final = final.replace(/\//g, '-'); // Replace slashes with hyphens
-        $('#url').val(final);
+        $('#slug').val(final);
     });
 });
