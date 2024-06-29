@@ -155,8 +155,7 @@
                                             <a href="#">Applications</a>
                                             <ul class="sub-menu">
                                                 {% for application in nav_applications %}
-                                                <li><a href="{% url 'application' application.Slug %}">{{
-                                                        application.Title }}</a></li>
+                                                <li><a href="{% url 'application' application.Slug %}">{{application.Title }}</a></li>
                                                 {% endfor %}
                                             </ul>
                                         </li>
