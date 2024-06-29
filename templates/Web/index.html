@@ -133,8 +133,7 @@
                             </a>
                         </div>
                         <div class="services__content-two services__content-six service-content">
-                            <h4 class="title"><a href="{% url 'application' application.Slug %}">{{ application.Title
-                                    }}</a></h4>
+                            <h4 class="title"><a href="{% url 'application' application.Slug %}">{{ application.Title }}</a></h4>
                             <p>{{ application.Description | slice:':100' }}...</p>
                         </div>
                     </div>
