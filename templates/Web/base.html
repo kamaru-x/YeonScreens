@@ -31,7 +31,7 @@
 
 <style>
     @media only screen and (min-width: 768px) {
-        .product-menu{
+        .product-menu {
             width: 1050px;
         }
     }
@@ -57,43 +57,15 @@
 
     <!-- header-area -->
     <header>
-        <div class="tg-header__top">
-            <div class="container custom-container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4">
-                        <div class="tg-header__top-delivery">
-                            <p class="text-center text-lg-start">Express delivery and free returns within 24 hours</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="tg-header__top-social">
-                            <ul class="list-wrap justify-content-center">
-                                <li><a href="https://www.facebook.com/" target="_blank">FB</a></li>
-                                <li><a href="https://twitter.com/home" target="_blank">TW</a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank">LI</a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank">IN</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="tg-header__top-menu">
-                            <ul class="list-wrap justify-content-end">
-                                <li><a href="{% url 'contact' %}">Contact</a></li>
-                                <li><a href="">Careers</a></li>
-                                <li><a href="">Insights</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="tg-header__logo-area tg-header__logo-area-two fix">
             <div class="container custom-container">
                 <div class="tg-header__logo-area-inner">
                     <div class="row">
                         <div class="col-xl-2">
                             <div class="logo">
-                                <a href="{% url 'home' %}"><img src="{% static 'web/images/YEON-LOGO.png' %}" alt="Logo"></a>
+                                <a href="{% url 'home' %}"><img src="{% static 'web/images/YEON-LOGO.png' %}"
+                                        alt="Logo"></a>
                             </div>
                         </div>
                         <div class="col-xl-10">
@@ -105,7 +77,9 @@
                                         </div>
                                         <div class="content">
                                             <span>Our location*</span>
-                                            <h4 class="title">3rd Floor Hilite Businesspark</h4>
+                                            <h4 class="title">54, Sarangapani Street,<br>
+                                                Near Pranav Eye Care, Ambattur OT
+                                                Chennai, Tamil Nadu</h4>
                                         </div>
                                     </div>
                                     <div class="tg-header__info-item tg-header__info-item-two">
@@ -114,7 +88,8 @@
                                         </div>
                                         <div class="content">
                                             <span>Send us mail*</span>
-                                            <h4 class="title"><a href="mailto:info@yeonscreens.com">info@yeonscreens.com</a></h4>
+                                            <h4 class="title"><a href="mailto:sales@yeonled.com">sales@yeonled.com</a>
+                                            </h4>
                                         </div>
                                     </div>
                                     <div class="tg-header__info-item tg-header__info-item-two">
@@ -123,7 +98,7 @@
                                         </div>
                                         <div class="content">
                                             <span>Phone number*</span>
-                                            <h4 class="title"><a href="tel:0123456789">+91 9876 543 21</a></h4>
+                                            <h4 class="title"><a href="tel:8122931070">+91 812 293 1070</a></h4>
                                         </div>
                                     </div>
                                 </div>
@@ -144,40 +119,53 @@
                         <div class="tgmenu__wrap">
                             <nav class="tgmenu__nav justify-content-between">
                                 <div class="logo d-xl-none">
-                                    <a href="{% url 'home' %}"><img src="{% static 'web/images/YEON-LOGO.png' %}" alt="Logo"></a>
+                                    <a href="{% url 'home' %}"><img src="{% static 'web/images/YEON-LOGO.png' %}"
+                                            alt="Logo"></a>
                                 </div>
                                 <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
                                     <ul class="navigation">
-                                        <li class="{% if page == 'home' %} active {% endif %}"><a href="{% url 'home' %}">Home</a></li>
-                                        <li class="{% if page == 'about' %} active {% endif %}"><a href="{% url 'about' %}">About Us</a></li>
-                                        <li class="menu-item-has-children {% if page == 'products' %} active {% endif %}"><a href="#">Products</a>
+                                        <li class="{% if page == 'home' %} active {% endif %}"><a
+                                                href="{% url 'home' %}">Home</a></li>
+                                        <li class="{% if page == 'about' %} active {% endif %}"><a
+                                                href="{% url 'about' %}">About Us</a></li>
+                                        <li
+                                            class="menu-item-has-children {% if page == 'products' %} active {% endif %}">
+                                            <a href="#">Products</a>
                                             <ul class="sub-menu">
                                                 <li class="product-menu row">
                                                     {% for series in nav_series %}
-                                                        <div class="col-md-3">
-                                                            <a href="{% url 'product-details' series.Slug %}">
-                                                                {% if series.Image %}
-                                                                    <img src="{{ series.Image.url }}" alt="" class="w-10 h-10 rounded">
-                                                                {% else %}
-                                                                    <img src="{% static 'dashboard/images/image.jpg' %}" alt="" class="w-10 h-10 rounded">
-                                                                {% endif %}
-                                                                <p class="text-center fw-bold">{{ series.Title }}</p>
-                                                            </a>
-                                                        </div>
+                                                    <div class="col-md-3">
+                                                        <a href="{% url 'product-details' series.Slug %}">
+                                                            {% if series.Image %}
+                                                            <img src="{{ series.Image.url }}" alt=""
+                                                                class="w-10 h-10 rounded">
+                                                            {% else %}
+                                                            <img src="{% static 'dashboard/images/image.jpg' %}" alt=""
+                                                                class="w-10 h-10 rounded">
+                                                            {% endif %}
+                                                            <p class="text-center fw-bold">{{ series.Title }}</p>
+                                                        </a>
+                                                    </div>
                                                     {% endfor %}
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item-has-children {% if page == 'application' %} active {% endif %}"><a href="#">Applications</a>
+                                        <li
+                                            class="menu-item-has-children {% if page == 'application' %} active {% endif %}">
+                                            <a href="#">Applications</a>
                                             <ul class="sub-menu">
                                                 {% for application in nav_applications %}
-                                                    <li><a href="{% url 'application' application.Slug %}">{{ application.Title }}</a></li>
+                                                <li><a href="{% url 'application' application.Slug %}">{{
+                                                        application.Title }}</a></li>
                                                 {% endfor %}
                                             </ul>
                                         </li>
-                                        <li class="{% if page == 'projects' %} active {% endif %}"><a href="{% url 'projects' %}">Projects</a></li>
-                                        <li class="{% if page == 'events' %} active {% endif %}"><a href="{% url 'events' %}">Events</a></li>
-                                        <li class="{% if page == 'contact' %} active {% endif %}"><a href="{% url 'contact' %}">Contact Us</a></li>
+                                        <li class="{% if page == 'projects' %} active {% endif %}"><a
+                                                href="{% url 'projects' %}">Projects</a></li>
+                                        <li class="{% if page == 'events' %} active {% endif %}"><a
+                                                href="{% url 'events' %}">Events</a></li>
+                                        <li class="{% if page == 'contact' %} active {% endif %}"><a
+                                                href="{% url 'contact' %}">Contact Us</a></li>
                                     </ul>
                                 </div>
                                 <div class="offCanvas-toggle offCanvas-toggle-two d-none d-xl-block">
@@ -233,10 +221,10 @@
                                 <button type="button" class="search-close-btn">
                                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round"></path>
-                                        <path d="M1 1L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round"></path>
+                                        <path d="M17 1L1 17" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M1 1L17 17" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round"></path>
                                     </svg>
                                 </button>
                             </div>
@@ -248,8 +236,13 @@
                                         <button>
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M9.55 18.1C14.272 18.1 18.1 14.272 18.1 9.55C18.1 4.82797 14.272 1 9.55 1C4.82797 1 1 4.82797 1 9.55C1 14.272 4.82797 18.1 9.55 18.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M19.0002 19.0002L17.2002 17.2002" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path
+                                                    d="M9.55 18.1C14.272 18.1 18.1 14.272 18.1 9.55C18.1 4.82797 14.272 1 9.55 1C4.82797 1 1 4.82797 1 9.55C1 14.272 4.82797 18.1 9.55 18.1Z"
+                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
+                                                <path d="M19.0002 19.0002L17.2002 17.2002" stroke="currentColor"
+                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                                </path>
                                             </svg>
                                         </button>
                                     </div>
@@ -274,17 +267,18 @@
             <div class="offCanvas__side-info mb-30">
                 <div class="contact-list mb-30">
                     <h4>Office Address</h4>
-                    <p>3rd Floor Hilite Business Park</p>
+                    <p>54, Sarangapani Street,
+                        Near Pranav Eye Care, Ambattur OT
+                        Chennai, Tamil Nadu</p>
                 </div>
                 <div class="contact-list mb-30">
                     <h4>Phone Number</h4>
-                    <p>+91 9876543210</p>
-                    <p>+91 9754321800</p>
+                    <p>+91 869 553 4140</p>
+                    <p>+91 9526 206 148</p>
                 </div>
                 <div class="contact-list mb-30">
                     <h4>Email Address</h4>
-                    <p>info@yeonscreens.com</p>
-                    <p>connect@yeonscreens.com</p>
+                    <p>sales@yeonled.com</p>
                 </div>
             </div>
             <div class="offCanvas__social-icon mt-30">
@@ -306,7 +300,7 @@
                 display: none;
             }
         }
-        
+
         @media (min-width: 768px) {
             .mobile-banner {
                 display: none;
@@ -331,16 +325,22 @@
                         </div>
                         <div class="col-lg-5">
                             <div class="footer__content-two">
-                                <p>Their team's technical expertise is truly outstanding. They took the time to thoroughly understand our goals and requirements and then designed and implemented solutions...</p>
+                                <p>Bringing vision to your digital life. Where innovation meets imagination Experience
+                                    the brilliance of the digital era from the universe of yeon LED screens...</p>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="footer__social footer__social-two">
                                 <ul class="list-wrap">
-                                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="https://twitter.com/home" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                                    <li><a href="https://www.facebook.com/profile.php?id=61555517286824"
+                                            target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="https://twitter.com/home" target="_blank"><i
+                                                class="fab fa-twitter"></i></a></li>
+                                    <li><a href="https://www.instagram.com/yeonled/" target="_blank"><i
+                                                class="fab fa-instagram"></i></a></li>
+
+                                    <li><a href="https://www.youtube.com/@yeonledscreen" target="_blank"><i
+                                                class="fab fa-youtube"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -353,7 +353,12 @@
                         </div>
                         <div class="content">
                             <span>Office Address</span>
-                            <h5 class="title">#rd Floor Hilite Business Park<br> Calicut , Kerala , India</h5>
+                            <h5 class="title">
+                                54, Sarangapani Street,
+                                <br>
+                                Near Pranav Eye Care, Ambattur OT
+                                Chennai, Tamil Nadu
+                            </h5>
                         </div>
                     </div>
                     <div class="footer__info-item">
@@ -363,8 +368,8 @@
                         <div class="content">
                             <span>Email Address</span>
                             <h5 class="title">
-                                <a href="mailto:info@yeonscreens.com">info@yeonscreens.com</a>
-                                <a href="mailto:connect@yeonscreens.com">connect@yeonscreens.com</a>
+                                <a href="mailto:sales@yeonled.com">sales@yeonled.com</a>
+
                             </h5>
                         </div>
                     </div>
@@ -375,8 +380,8 @@
                         <div class="content">
                             <span>Phone Number</span>
                             <h5 class="title">
-                                <a href="tel:0123456789">+(91) 9876 543 210</a>
-                                <a href="tel:0123456789">+(91) 9876 543 210</a>
+                                <a href="tel:8695534140">+(91) 8695 534 140</a>
+                                <a href="tel:8122931070">+(91) 8122 931 070</a>
                             </h5>
                         </div>
                     </div>
@@ -386,10 +391,9 @@
                         <div class="col-lg-8">
                             <div class="footer__bottom-menu-three">
                                 <ul class="list-wrap">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="">About</a></li>
-                                    <li><a href="">Services</a></li>
-                                    <li><a href="">Contact</a></li>
+                                    <li><a href="{% url 'home' %}">Home</a></li>
+                                    <li><a href="{% url 'about' %}">About</a></li>
+                                    <li><a href="{% url 'contact' %}">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -404,7 +408,7 @@
         </div>
     </footer>
     <!-- footer-area-end -->
-    
+
     <!-- JS here -->
     <script src="{% static 'web/js/vendor/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'web/js/bootstrap.min.js' %}"></script>

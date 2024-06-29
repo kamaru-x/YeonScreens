@@ -1,0 +1,10 @@
+[AutoRun]
+OPEN=setup.exe
+ICON=setup.exe
+
+https kamaru-x/YeonScreens
+
+
+
+
+product -> cpanel -> terminal -> cd-changeDir -> git pull
